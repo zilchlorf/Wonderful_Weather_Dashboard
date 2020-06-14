@@ -1,5 +1,5 @@
 let city, url, APIkey = "";
-var cityInput = document.querySelector("searched_cities_container")
+var citiesDiv = document.querySelector("searched_cities_container")
 var searchbtn = document.querySelector("#searchbtn")
 //start with empty array
 let cities = [];
@@ -7,10 +7,6 @@ let cities = [];
 url = "https://api.openweathermap.org/data/2.5/forecast?q=";
 currenturl = "https://api.openweathermap.org/data/2.5/weather?q=";
 APIkey = "&APPID=187b175e5dec11ce8a3bab842028437f";
-
-
-
-
 
 $("#searchbtn").on("click", function (event) {
     event.preventDefault();
@@ -28,6 +24,7 @@ $("#searchbtn").on("click", function (event) {
         method: "GET"
     }).then(function (response) {
         console.log(response)
+
         $.ajax({
             url: `https://api.openweathermap.org/data/2.5/onecall?lat=${response.coord.lat}&lon=${response.coord.lon}&exclude=minutely,hourly${APIkey}`,
             method: "GET"
@@ -42,6 +39,13 @@ $("#searchbtn").on("click", function (event) {
                 "src": "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png",
                 "height": "120px", "width": "120px"
             });
+            if (UVresponse.current.uvi > 8) { $(".today_weather").css({ "background-color": "red" }) }
+            if (UVresponse.current.uvi > 7) { $(".today_weather").css({ "background-color": "orange" }) }
+            if (UVresponse.current.uvi < 8) { $(".today_weather").css({ "background-color": "orange" }) }
+            if (UVresponse.current.uvi < 7) { $(".today_weather").css({ "background-color": "green" }) }
+
+
+
 
         });
     })
