@@ -39,10 +39,9 @@ $("#searchbtn").on("click", function (event) {
                 "src": "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png",
                 "height": "120px", "width": "120px"
             });
-            if (UVresponse.current.uvi > 8) { $(".today_weather").css({ "background-color": "red" }) }
-            if (UVresponse.current.uvi > 7) { $(".today_weather").css({ "background-color": "orange" }) }
-            if (UVresponse.current.uvi < 8) { $(".today_weather").css({ "background-color": "orange" }) }
-            if (UVresponse.current.uvi < 7) { $(".today_weather").css({ "background-color": "green" }) }
+            if (UVresponse.current.uvi > 8) { $("#today_UV_Index").css({ "background-color": "red" }) }
+            if (UVresponse.current.uvi > 7 && UVresponse.current.uvi < 8) { $("#today_UV_Index").css({ "background-color": "orange" }) }
+            if (UVresponse.current.uvi < 7) { $("#today_UV_Index").css({ "background-color": "lightgreen" }) }
 
 
 
