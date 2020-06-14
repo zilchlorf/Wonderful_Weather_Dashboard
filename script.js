@@ -1,5 +1,5 @@
 let city, url, APIkey = "";
-var citiesDiv = document.querySelector("searched_cities_container")
+var cityInput = document.querySelector("searched_cities_container")
 
 var searchbtn = document.querySelector("#searchbtn")
 //start with empty array
@@ -27,8 +27,11 @@ $.ajax({
         $("#today_humidity").html("Humidity: " + response.main.humidity + '%');
         $("#today_wind_speed").html("Wind Speed: " + response.wind.speed + ' ' + 'MPH');
         $("#today_UV_Index").html("UV Index: " + UVresponse.current.uvi);
+        $("#today_icon_div").attr({
+            "src": "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png",
+            "height": "120px", "width": "120px"
+        });
 
-
-    })
+    });
 })
 // })
