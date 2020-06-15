@@ -94,15 +94,18 @@ function APIcalls() {
 
         //iterate through the 40 weather data sets
         for (let i = 0; i < response.list.length; i++) {
-            let day = response.list[i].dt_txt.split("-")[2].split(" ")[0];
-            let month = response.list[i].dt_txt.split("-")[1];
-            let year = response.list[i].dt_txt.split("-")[0];
-            $("#" + day_number + "date").text(month + "/" + day + "/" + year);
-            let temp = Math.round(((response.list[i].main.temp - 273.15) * 9 / 5 + 32));
-            $("#" + day_number + "five_day_temp").text("Temp: " + temp + String.fromCharCode(176) + "F");
-            $("#" + day_number + "five_day_humidity").text("Humidity: " + response.list[i].main.humidity);
-            $("#" + day_number + "five_day_icon").attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
-            day_number++;
+            //split function to isolate the time from the time/data aspect of weather data, and only select weather reports for 3pm
+            if (response.list[i].dt_txt.split(" ")[1] == "15:00:00") {
+                let day = response.list[i].dt_txt.split("-")[2].split(" ")[0];
+                let month = response.list[i].dt_txt.split("-")[1];
+                let year = response.list[i].dt_txt.split("-")[0];
+                $("#" + day_number + "date").text(month + "/" + day + "/" + year);
+                let temp = Math.round(((response.list[i].main.temp - 273.15) * 9 / 5 + 32));
+                $("#" + day_number + "five_day_temp").text("Temp: " + temp + String.fromCharCode(176) + "F");
+                $("#" + day_number + "five_day_humidity").text("Humidity: " + response.list[i].main.humidity);
+                $("#" + day_number + "five_day_icon").attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
+                day_number++;
+            }
         }
     });
     //function to display data in main div 
