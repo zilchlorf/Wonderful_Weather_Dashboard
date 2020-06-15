@@ -1,14 +1,17 @@
 #page_header{
     text-align: center;
-    background-color:#071d31;
+    background-color:#0b3113;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white
+    color: rgb(178, 180, 55)
 
 }
 
+.container-fluid {
+    background-color: bisque;
+}
 
 .listbtn{
-    background-color: #3d6488;
+    background-color: #096811;
     color: white;
     font-family: 'Open Sans Condensed', sans-serif;
     border-radius: 2px; 
@@ -26,12 +29,12 @@
 }
 
 .card-body{
-    background-color: #3d6488;
+    background-color: #096327;
     color: white;
 }
 
 #searchbtn{
-    background-color: #3d6488;
+    background-color: #0c6d19;
     color: white;
     font-family: 'Open Sans Condensed', sans-serif;
     border-radius: 2px; 
@@ -39,8 +42,8 @@
 
 }
 #today_icon_div{
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 4rem;
+    width: 4rem;
 }
 
 @media (max-width: 690px) {
