@@ -17,15 +17,16 @@
     border-radius: 2px; 
     margin-left: 20%;
     margin-right: 20%;
-    width: 60%;
+    width: 100%;
     margin-top: 2px;
     margin-bottom: 2px;
+    font-size: xx-large;
 
 }
 
-
 .left_div{
     height: 100%; 
+    width: 100%;
 }
 
 .card-body{
@@ -45,7 +46,7 @@
     height: 4rem;
     width: 4rem;
 }
-
+        
 @media (max-width: 690px) {
 .container-fluid.row, .col-3,.pt-3,.left_div, #searched_cities_container{
     display: flex;
